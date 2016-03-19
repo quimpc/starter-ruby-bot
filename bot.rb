@@ -82,6 +82,9 @@ client.on :message do |data|
     wetterinfo = Net::HTTP.get('api.openweathermap.org', '/data/2.5/weather?q=menorca&appid=b1b15e88fa797225412429c1c50c122a')
     wetterinfo = JSON.parse wetterinfo
     client.message channel: data['channel'], text: wetterinfo['weather'][0]['description']
+    
+   when 'ja' 'nein' then
+    client.message channel: data['channel'],text: 'wer hat dich etwas gefragt?'
    
   when /^bot/ then
     client.message channel: data['channel'], text: "Sorry <@#{data['user']}>, I don\'t understand. \n#{help}"
