@@ -86,6 +86,17 @@ client.on :message do |data|
    when 'ja' 'nein' then
     client.message channel: data['channel'],text: 'wer hat dich etwas gefragt?'
    
+    when 'wie heißt du' then
+    client.message channel: data['channel'],text: 'ich heiße slackbot. Wie hißt du?'
+    
+     when 'du bist dumm' then
+    client.message channel: data['channel'],text: 'ich weis'
+    
+     when 'wer ist schlauer du oder ich?' then
+    client.message channel: data['channel'],text: 'du natürlich aber ich bin....'
+   
+   
+   
   when /^bot/ then
     client.message channel: data['channel'], text: "Sorry <@#{data['user']}>, I don\'t understand. \n#{help}"
     logger.debug("Unknown command")
