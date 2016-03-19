@@ -58,8 +58,13 @@ client.on :message do |data|
     client.message channel: data['channel'], text: help
     logger.debug("A call for help")
     
-  when 'Wie wird das Wetter?' ,  'Wie ist das Wetter?' then
+  when 'Wie wird das Wetter in Bonn?' ,  'Wie ist das Wetter in Bonn?' then
     wetterinfo = Net::HTTP.get('api.openweathermap.org', '/data/2.5/weather?q=Bonn&appid=b1b15e88fa797225412429c1c50c122a')
+    wetterinfo = JSON.parse wetterinfo
+    client.message channel: data['channel'], text: wetterinfo['weather'][0]['description']
+    
+     when 'Wie wird das Wetter in Barcelona?' ,  'Wie ist das Wetter in Barcelona?' then
+    wetterinfo = Net::HTTP.get('api.openweathermap.org', '/data/2.5/weather?q=Barcelona&appid=b1b15e88fa797225412429c1c50c122a')
     wetterinfo = JSON.parse wetterinfo
     client.message channel: data['channel'], text: wetterinfo['weather'][0]['description']
     
