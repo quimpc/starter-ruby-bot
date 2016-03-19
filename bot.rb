@@ -73,8 +73,13 @@ client.on :message do |data|
     wetterinfo = JSON.parse wetterinfo
     client.message channel: data['channel'], text: wetterinfo['weather'][0]['description']
     
-     when 'Wie wird das Wetter in New York?' ,  'Wie ist das Wetter in New York?' then
-    wetterinfo = Net::HTTP.get('api.openweathermap.org', '/data/2.5/weather?q=New York&appid=b1b15e88fa797225412429c1c50c122a')
+     when 'Wie wird das Wetter in NewYork?' ,  'Wie ist das Wetter in NewYork?' then
+    wetterinfo = Net::HTTP.get('api.openweathermap.org', '/data/2.5/weather?q=NewYork&appid=b1b15e88fa797225412429c1c50c122a')
+    wetterinfo = JSON.parse wetterinfo
+    client.message channel: data['channel'], text: wetterinfo['weather'][0]['description']
+   
+   when 'Wie wird das Wetter in menorca?' ,  'Wie ist das Wetter in menorca?' then
+    wetterinfo = Net::HTTP.get('api.openweathermap.org', '/data/2.5/weather?q=menorca&appid=b1b15e88fa797225412429c1c50c122a')
     wetterinfo = JSON.parse wetterinfo
     client.message channel: data['channel'], text: wetterinfo['weather'][0]['description']
    
