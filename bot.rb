@@ -84,7 +84,7 @@ client.on :message do |data|
     client.message channel: data['channel'], text: wetterinfo['weather'][0]['description']
     
    when 'ja' 'nein' then
-    client.message channel: data['channel'],text: 'wer hat dich etwas gefragt?'
+    client.message channel: data['channel'],text: 'Wer hat dich etwas gefragt?'
    
     when 'wie heißt du' then
     client.message channel: data['channel'],text: 'ich heiße slackbot. Wie hißt du?'
